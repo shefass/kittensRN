@@ -48,7 +48,7 @@ export default class App extends React.Component {
 
 handleFirstConnectivityChange = isConnected => {
   console.log("Then, is " + (isConnected ? "online" : "offline"));
-  console.log(isConnected); //didn't know how to test internet lose, so no state change
+  console.log(isConnected); //didn't know how to test internet loss, so no state change
   NetInfo.isConnected.removeEventListener(
     "connectionChange",
     handleFirstConnectivityChange

@@ -1,9 +1,12 @@
 {
   "expo": {
     "name": "Kittens rules world!!!:)", 
-    "slug": "Kittens",
+    "slug": "kittensRN",
     "privacy": "public",
     "sdkVersion": "32.0.0",
+    "android": {
+      "package": "com.algirdas.kittens"
+    },
     "platforms": [
       "ios",
       "android"
@@ -23,7 +26,8 @@
       "**/*"
     ], 
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.algirdas.kittens"
     }
   }
 }

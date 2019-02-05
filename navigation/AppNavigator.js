@@ -11,11 +11,11 @@ const AppNavigator = createStackNavigator(
     initialRouteName: "List",
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: "#f4511e"
+        backgroundColor: "#f4511e",
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
-        fontWeight: "bold"
+        fontWeight: "bold",
       }
     }
   }
