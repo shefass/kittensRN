@@ -6,7 +6,7 @@ This app shows random kittens with random names.<br>
 Kittens taken from: https://placekitten.com/ <br>
 
 ## Instalation
-Take the apk file, and install directly to your mobile phone or: <br>
+Take the [apk file](https://github.com/shefass/kittensRN/blob/master/kittensRN-6f17e9d606524141b931a8d2f054c7d5-signed.apk?raw=true), and install directly to your mobile phone or: <br>
 Clone repository: ```git clone https://github.com/shefass/kittensRN.git``` <br>
 Install Node dependencys: ```npm install```<br>
 Run expo server: ```npm start```<br>
