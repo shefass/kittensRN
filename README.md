@@ -25,3 +25,4 @@ When you use the slider it changes internal state and shows you it.<br>
 When you release slider, function generetes random list of kitten names and pictures.<br>
 When app maps it to FlatList.<br>
 When you click the name, name pass data to other screen and that screen renders by it the kitten.<br> 
+You can look to demo [here](http://www.appdemostore.com/demo?id=4662195351715840)
