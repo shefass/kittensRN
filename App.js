@@ -16,7 +16,7 @@ export default class App extends React.Component {
   }
 
   async _loadAssetsAsync() {
-    const imageAssets = cacheImages(kittens.link);
+    const imageAssets = cacheImages(kittens);
 
     await Promise.all([...imageAssets]);
   }
@@ -47,7 +47,7 @@ export default class App extends React.Component {
 }
 
 handleFirstConnectivityChange = isConnected => {
-  console.log("Then, is " + (isConnected ? "online" : "offline"));
+  console.log("Then, is " + (isConnected ? "online" : "offline")); 
   console.log(isConnected); //didn't know how to test internet loss, so no state change
   NetInfo.isConnected.removeEventListener(
     "connectionChange",
@@ -57,8 +57,8 @@ handleFirstConnectivityChange = isConnected => {
 
 function cacheImages(images) {
   return images.map(image => {
-    if (typeof image === "string") {
-      return Image.prefetch(image);
+    if (typeof image.link === "string") {
+      return Image.prefetch(image.link);
     }
   });
 }
