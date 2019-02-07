@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { loreIpsum } from "./../components/data";
 
+
 export default class DetailsScreen extends React.Component {
   static navigationOptions = {
     title: "Kitten Details"
