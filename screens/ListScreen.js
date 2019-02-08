@@ -6,7 +6,8 @@ import {
   Image,
   Button,
   FlatList,
-  Slider
+  Slider,
+  Platform
 } from "react-native";
 import { kittens } from "./../components/data";
 import { KeepAwake } from "expo";
@@ -15,24 +16,27 @@ export default class ListScreen extends React.Component {
   state = {
     value: 1
   };
-  static navigationOptions = {
-    title: "Kittens List"
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerTitle: "Kittens List",
+      headerRight: (
+        <Button
+          onPress={() => navigation.navigate("Details", {
+            name: randomizedKittens[0].name,
+            link: randomizedKittens[0].link
+          })}
+          title="Kitten Details"
+          color={Platform.OS === 'ios' ? '#fff' : null}
+          style={styles.button}
+        />
+      ),
+    };
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.button}>
-          <Button
-            title="Go to First Kitten Details or Push Name"
-            onPress={() =>
-              this.props.navigation.navigate("Details", {
-                name: randomizedKittens[0].name,
-                link: randomizedKittens[0].link
-              })
-            }
-          />
-        </View>
+      
         <KeepAwake />
         <View style={styles.slider}>
           <Slider
