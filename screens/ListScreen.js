@@ -7,7 +7,8 @@ import {
   Button,
   FlatList,
   Slider,
-  Platform
+  Platform,
+  TouchableHighlight
 } from "react-native";
 import { kittens } from "./../components/data";
 import { KeepAwake } from "expo";
@@ -43,6 +44,7 @@ export default class ListScreen extends React.Component {
             value={this.state.value}
             onValueChange={value => this.setState({ value })}
             onSlidingComplete={repeater(this.state.value)}
+            minimumValue={1}
             maximumValue={100}
             step={1}
           />
@@ -53,16 +55,14 @@ export default class ListScreen extends React.Component {
         <FlatList
           data={randomizedKittens}
           renderItem={({ item }) => (
+            <TouchableHighlight onPress={() =>
+              this.props.navigation.navigate("Details", {
+                name: item.name,
+                link: item.link
+              })
+            } underlayColor="#f4511e">
             <View style={styles.item}>
-              <Text
-                style={styles.text}
-                onPress={() =>
-                  this.props.navigation.navigate("Details", {
-                    name: item.name,
-                    link: item.link
-                  })
-                }
-              >
+              <Text style={styles.text}>
                 {item.name}
               </Text>
               <Image
@@ -70,6 +70,7 @@ export default class ListScreen extends React.Component {
                 style={{ width: 100, height: 100 }}
               />
             </View>
+            </TouchableHighlight>
           )}
         />
       </View>
@@ -78,9 +79,7 @@ export default class ListScreen extends React.Component {
 }
 
 getRndInteger = () => Math.floor(Math.random() * 100);
-let randomizedKittens = [
-  { name: "Colly", link: "https://placekitten.com/200/200" }
-];
+let randomizedKittens = [];
 
 function repeater(times) {
   randomizedKittens = [];
@@ -99,11 +98,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffeeee",
 
     justifyContent: "center"
-  },
-  button: {
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 10
   },
   slider: {
     alignItems: "stretch",
